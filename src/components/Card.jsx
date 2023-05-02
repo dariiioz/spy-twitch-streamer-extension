@@ -3,6 +3,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const Card = ({ streamData, profileData }) => {
+    const handleLink = () => {
+        window.open(`https://twitch.tv/${profileData.login}`, "_blank");
+    };
+
     console.log(streamData);
     console.log(profileData);
     return (
@@ -54,7 +58,9 @@ const Card = ({ streamData, profileData }) => {
                         {streamData.title}
                     </p>
 
-                    <button href="https://www.twitch.tv/${}" className="mt-3 btn btn-primary items-center inline-flex">
+                    <button
+                        onClick={handleLink}
+                        className="mt-3 btn btn-primary items-center inline-flex">
                         Watch on Twitch
                     </button>
                 </div>
