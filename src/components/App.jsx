@@ -4,6 +4,7 @@ import { useState } from "react";
 import dayjs from "dayjs";
 import { useEffect } from "react";
 import Card from "./Card";
+import ButtonResetConfig from "./ButtonResetConfig";
 
 const App = () => {
     const [isConfigured, setIsConfigured] = useState(false);
@@ -15,6 +16,7 @@ const App = () => {
     const [profileData, setProfileData] = useState({});
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
 
     const getStraemData = async () => {
         setLoading(true);
@@ -74,6 +76,7 @@ const App = () => {
                 console.log("Stream data : ", res);
                 if (res.data.length > 0) {
                     setStreamData(res.data[0]);
+                    setError("");
                 } else {
                     setError("No stream data found.");
                 }
@@ -91,11 +94,16 @@ const App = () => {
         }
     }, [isConfigured]);
 
+
     return (
         <div>
             <h1 className="text-white text-center pt-2">
                 Twitch Live Extension
             </h1>
+
+            {isConfigured && (
+                <ButtonResetConfig setIsConfigured={setIsConfigured} />
+            )}
 
             {isConfigured === false && (
                 <Settings setIsConfigured={setIsConfigured} />
@@ -113,7 +121,7 @@ const App = () => {
                 </div>
             )}
 
-            {streamData && <Card streamData={streamData} profileData={profileData} />}
+            {streamData && isConfigured === true && <Card streamData={streamData} profileData={profileData} />}
 
             
         </div>
