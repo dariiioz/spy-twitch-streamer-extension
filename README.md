@@ -24,7 +24,7 @@ To install extension in your Chromium Browser (Google Chrome, Brave etc). Follow
 - Enable the developper mod at the top right
 - Now, you can upload the extension with Load Unpacked Extension button
 - Pin the extension at your bar
-- Launch it & configure the extention with your Client-ID and Secret Code from Twitch Developer Page [Twitch developper](https://dev.twitch.tv/console/apps/) !
+- Launch it & configure the extention with your Client-ID and Secret Code from [Twitch developper page](https://dev.twitch.tv/console/apps/) !
 
 
 ## Authors
