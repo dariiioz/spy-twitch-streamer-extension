@@ -6,7 +6,7 @@ Spy Twitch Streamer is an Chrome extension to check if streamer was on live or n
 
 📌 Last update: 
 📌 Version: 1.0
-📌 Date: 26/04/2023
+📌 Date: 03/05/2023
 
 ## Screenshots
 
