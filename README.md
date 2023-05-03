@@ -18,7 +18,7 @@ Spy Twitch Streamer is an Chrome extension to check if streamer was on live or n
 
 To install extension in your Chromium Browser (Google Chrome, Brave etc). Follow this step.
 
-- Download the compressed folder at this [[link](http://spytwitchstreamer.cappelleaymeric.fr/spy-twitch-streamer.rar)](https://spytwitchstreamer.cappelleaymeric.fr/spy-twitch-streamer.rar)
+- Download the compressed folder at this [link](https://spytwitchstreamer.cappelleaymeric.fr/spy-twitch-streamer.rar)
 - Unzip the folder
 - Open your Browser and go to extension
 - Enable the developper mod at the top right
