@@ -5,9 +5,6 @@ import { Toaster } from "react-hot-toast";
 import dayjs from "dayjs";
 import Loader from "./Loader";
 
-// l18j76hbws4sdfk2ont4zdtlkljsaj
-// 4q83kznppblx379ay949bvmooti5dl
-
 const Settings = ({ setIsConfigured }) => {
     const [clientId, setClientId] = useState(
         localStorage.getItem("client_id") || ""

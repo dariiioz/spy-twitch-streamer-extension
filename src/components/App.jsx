@@ -98,7 +98,7 @@ const App = () => {
     return (
         <div>
             <h1 className="text-white text-center pt-2">
-                Twitch Live Extension
+                Streamer Spy - Twitch
             </h1>
 
             {isConfigured && (
