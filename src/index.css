@@ -13,15 +13,29 @@ h1 {
     font-size: 1rem;
 }
 h2, label {
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto Mono", monospace;
 }
 input[type="text"] {
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.8em;
 }
 
 button {
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto Mono", monospace;
 }
 a {
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto Mono", monospace;
 }
+
+label {
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.7em;
+}
+
+.btn_watch {
+    font-family: "Raleway", sans-serif;
+    font-size: 0.8em;
+}
+
+
+

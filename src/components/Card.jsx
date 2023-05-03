@@ -1,6 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+
 
 const Card = ({ streamData, profileData }) => {
     const handleLink = () => {
@@ -60,7 +59,7 @@ const Card = ({ streamData, profileData }) => {
 
                     <button
                         onClick={handleLink}
-                        className="mt-3 btn btn-primary items-center inline-flex">
+                        className="mt-3 btn btn-primary items-center inline-flex btn_watch capitalize">
                         Watch on Twitch
                     </button>
                 </div>

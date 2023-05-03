@@ -1,22 +1,19 @@
 import React from "react";
 import Settings from "./Settings";
 import { useState } from "react";
-import dayjs from "dayjs";
+
 import { useEffect } from "react";
 import Card from "./Card";
 import ButtonResetConfig from "./ButtonResetConfig";
+import Loader from "./Loader";
 
 const App = () => {
     const [isConfigured, setIsConfigured] = useState(false);
-    const [expiration_date, setExpiration_date] = useState(
-        dayjs(localStorage.getItem("expiration_date")) || ""
-    );
 
     const [streamData, setStreamData] = useState({});
     const [profileData, setProfileData] = useState({});
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-
 
     const getStraemData = async () => {
         setLoading(true);
@@ -70,30 +67,33 @@ const App = () => {
     };
 
     useEffect(() => {
+        let interval;
         if (isConfigured) {
-            const data = getStraemData();
-            data.then((res) => {
-                console.log("Stream data : ", res);
-                if (res.data.length > 0) {
-                    setStreamData(res.data[0]);
+            const fetchData = async () => {
+                const streamData = await getStraemData();
+                console.log("Stream data : ", streamData);
+                if (streamData.data.length > 0) {
+                    setStreamData(streamData.data[0]);
                     setError("");
                 } else {
                     setError("No stream data found.");
                 }
-            });
 
-            const profileData = getProfileData();
-            profileData.then((res) => {
-                console.log("Profile data : ", res);
-                if (res.data.length > 0) {
-                    setProfileData(res.data[0]);
+                const profileData = await getProfileData();
+                console.log("Profile data : ", profileData);
+                if (profileData.data.length > 0) {
+                    setProfileData(profileData.data[0]);
                 } else {
                     setError("No profile data found.");
                 }
-            });
-        }
-    }, [isConfigured]);
+            };
 
+            fetchData();
+            interval = setInterval(fetchData, 30000); 
+        }
+
+        return () => clearInterval(interval); 
+    }, [isConfigured]);
 
     return (
         <div>
@@ -110,9 +110,7 @@ const App = () => {
             )}
 
             {loading && (
-                <div className="text-center">
-                    <p className="text-blue">Loading...</p>
-                </div>
+                <Loader />
             )}
 
             {error && (
@@ -121,9 +119,9 @@ const App = () => {
                 </div>
             )}
 
-            {streamData && isConfigured === true && <Card streamData={streamData} profileData={profileData} />}
-
-            
+            {streamData && isConfigured === true && !loading && (
+                <Card streamData={streamData} profileData={profileData} />
+            )}
         </div>
     );
 };
