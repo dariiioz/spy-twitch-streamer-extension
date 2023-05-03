@@ -1,0 +1,13 @@
+{
+      "manifest_version": 2,
+      "name": "StreamerSpy",
+      "version": "1.0",
+      "description": "StreamerSpy is an app to help you to spy on your favorite streamer !",
+      "permissions": [
+        "activeTab"
+      ],
+      "browser_action": {
+        "default_popup": "index.html",
+        "default_icon": "live-streaming.png"
+      }
+    }
